@@ -28,7 +28,6 @@ const Hero = () => {
           <h4>freelance front-ende developer</h4>
           <Link to="/contact" className="btn">Contact me</Link>
           <SocialLinks />
-
         </div>
       </article>
       <Image fluid={image} className="hero-img" />
