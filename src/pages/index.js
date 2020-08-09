@@ -6,7 +6,14 @@ import Services from "../components/Services"
 import Jobs from "../components/Jobs"
 import Projects from "../components/Projects"
 import Blogs from "../components/Blogs"
+
+import Navbar from '../components/Navbar';
+
 export default () => {
-  return <h2>index page</h2>
+  return (
+    <Layout>
+      <Hero />
+      <Services />
+    </Layout>)
 }
 // ...GatsbyImageSharpFluid
