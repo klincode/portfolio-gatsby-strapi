@@ -9,12 +9,42 @@ import Blogs from "../components/Blogs"
 
 import Navbar from '../components/Navbar';
 
-export default () => {
+export default ({ data }) => {
+  const { allStrapiProjects: { nodes: projects } } = data;
   return (
     <Layout>
       <Hero />
       <Services />
       <Jobs />
+      <Projects
+        projects={projects}
+        title="featured Projects"
+        showLink />
     </Layout>)
 }
-// ...GatsbyImageSharpFluid
+
+export const query = graphql`
+  {
+    allStrapiProjects(filter: {featured: {eq: true}}) {
+      nodes {
+        description
+        id
+        title
+        url
+        github
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        stack {
+          id
+          title
+        }
+      }
+    }
+  }
+`
+
