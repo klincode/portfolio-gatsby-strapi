@@ -10,7 +10,10 @@ import Blogs from "../components/Blogs"
 import Navbar from '../components/Navbar';
 
 export default ({ data }) => {
-  const { allStrapiProjects: { nodes: projects } } = data;
+  const {
+    allStrapiProjects: { nodes: projects },
+    allStrapiBlogs: { nodes: blogs }
+  } = data;
   return (
     <Layout>
       <Hero />
@@ -20,6 +23,7 @@ export default ({ data }) => {
         projects={projects}
         title="featured Projects"
         showLink />
+      <Blogs blogs={blogs} title="blog" showLink />
     </Layout>)
 }
 
@@ -44,6 +48,27 @@ export const query = graphql`
           title
         }
       }
+    }
+
+    allStrapiBlogs(sort: {fields: id, order: DESC}, limit: 3) {
+      
+        nodes {
+          slug
+          title
+          content
+          date(formatString: "MM dd,YYYY")
+          id
+          desc
+          category
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      
     }
   }
 `
