@@ -6,7 +6,7 @@ import Services from "../components/Services"
 import Jobs from "../components/Jobs"
 import Projects from "../components/Projects"
 import Blogs from "../components/Blogs"
-
+import SEO from '../components/SEO'
 import Navbar from '../components/Navbar';
 
 export default ({ data }) => {
@@ -16,6 +16,7 @@ export default ({ data }) => {
   } = data;
   return (
     <Layout>
+      <SEO title="home" />
       <Hero />
       <Services />
       <Jobs />

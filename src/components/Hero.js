@@ -30,7 +30,7 @@ const Hero = () => {
           <SocialLinks />
         </div>
       </article>
-      <Image fluid={image} className="hero-img" />
+      {/* <Image fluid={image} className="hero-img" /> */}
     </div>
   </header>
 }
